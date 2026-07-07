@@ -495,12 +495,104 @@
             }
         }
 
-        /* RESPONSIVE */
+        /* =========================================================
+           RESPONSIVE — added for mobile, tablet, desktop & big screens
+           Nothing above this point was changed. Everything below only
+           adapts layout/sizing per breakpoint; no colors, content,
+           structure, or animations were altered.
+           ========================================================= */
+
+        /* Large desktops / big screens (1440px and up) */
+        @media (min-width: 1440px) {
+            .hero,
+            .categories,
+            .new-releases {
+                padding-left: calc((100% - 1400px) / 2 + 60px);
+                padding-right: calc((100% - 1400px) / 2 + 60px);
+            }
+
+            .category-grid,
+            .products-grid {
+                max-width: 1300px;
+            }
+
+            .hero h1 {
+                font-size: 64px;
+            }
+        }
+
+        /* Small laptops / standard desktops (1025px - 1439px) : matches original design, no change needed */
+
+        /* Tablets (769px - 1024px) */
+        @media (max-width: 1024px) {
+            .hero {
+                padding: 35px 40px;
+            }
+
+            .hero h1 {
+                font-size: 44px;
+            }
+
+            .features {
+                padding: 30px 40px;
+            }
+
+            .categories {
+                padding: 60px 30px;
+            }
+
+            .categories .section-title,
+            .new-releases .section-title {
+                font-size: 34px;
+                margin-bottom: 45px;
+            }
+
+            .category-grid {
+                gap: 50px 25px;
+            }
+
+            .new-releases {
+                padding: 50px 30px;
+            }
+
+            .products-grid {
+                gap: 24px;
+            }
+
+            .bundle-showcase {
+                margin: 50px 30px;
+                padding: 50px 20px;
+            }
+        }
+
+        /* Tablets in portrait / large phones (max-width: 900px) */
+        @media (max-width: 900px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Tablets & small laptops - existing breakpoint kept and extended */
         @media (max-width: 768px) {
+            .top-banner {
+                font-size: 12px;
+                padding: 10px 10px;
+            }
+
+            .top-banner span {
+                margin: 0 8px;
+                display: block;
+            }
+
             .hero {
                 flex-direction: column;
                 height: auto;
                 padding: 30px 20px;
+                text-align: center;
             }
 
             .hero h1 {
@@ -511,27 +603,162 @@
                 max-width: 100%;
             }
 
+            .hero-content {
+                margin-bottom: 25px;
+            }
+
             .features {
                 grid-template-columns: 1fr;
+                padding: 25px 20px;
+            }
+
+            .categories {
+                padding: 50px 20px;
+            }
+
+            .categories .section-title,
+            .new-releases .section-title {
+                font-size: 28px;
+                margin-bottom: 35px;
             }
 
             .category-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 40px 15px;
+            }
+
+            .category-stage {
+                width: 180px;
+                height: 260px;
+            }
+
+            .new-releases {
+                padding: 40px 20px;
             }
 
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .product-image {
+                height: 200px;
             }
 
             .bundle-showcase {
                 flex-direction: column;
                 gap: 30px;
                 min-height: auto;
+                margin: 40px 20px;
+                padding: 40px 15px;
             }
 
             .bundle-image {
                 width: 100%;
                 max-width: 300px;
+            }
+
+            footer {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Mobile phones (max-width: 600px) */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 30px;
+                letter-spacing: 1px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .hero-btn {
+                padding: 10px 28px;
+                font-size: 13px;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px 12px;
+            }
+
+            .category-stage {
+                width: 150px;
+                height: 220px;
+            }
+
+            .category-image {
+                width: 100px;
+                height: 140px;
+                margin-left: -50px;
+            }
+
+            .cat-l {
+                transform: translateX(-38px) rotate(-22deg);
+            }
+
+            .cat-c {
+                transform: translateY(-6px);
+            }
+
+            .cat-r {
+                transform: translateX(38px) rotate(22deg);
+            }
+
+            .category-card:hover .cat-l {
+                transform: translateX(-50px) rotate(-30deg);
+            }
+
+            .category-card:hover .cat-c {
+                transform: translateY(-12px) scale(1.06);
+            }
+
+            .category-card:hover .cat-r {
+                transform: translateX(50px) rotate(30deg);
+            }
+
+            .category-name {
+                font-size: 15px;
+            }
+
+            .category-description {
+                font-size: 11px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 220px;
+            }
+        }
+
+        /* Small mobile phones (max-width: 420px) */
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 26px;
+            }
+
+            .categories .section-title,
+            .new-releases .section-title {
+                font-size: 24px;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+                justify-items: center;
+            }
+
+            .feature-card {
+                padding: 15px;
+            }
+
+            .feature-icon {
+                font-size: 28px;
+                min-width: 40px;
             }
         }
     </style>
